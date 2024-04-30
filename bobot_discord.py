@@ -1,6 +1,12 @@
-import random
+import os
+from dotenv import load_dotenv
 import discord #import du module
 from discord.ext import commands
+
+# Charger les variables d'environnement à partir du fichier .env
+load_dotenv()
+# Récupérer le token Discord à partir des variables d'environnement
+TOKEN = os.getenv("DISCORD_TOKEN_2")
 
 #Intents
 intents = discord.Intents().all()
@@ -29,4 +35,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 # Connexion du bot au serveur avec le token
-bot.run("MTIzNDg1ODEyMzgwNjkwMDI2NQ.G9xXqM.yQjfWSkiqM8dnJhZnWcE-UabX8nsUjcdz-Ae80")
+bot.run(TOKEN)

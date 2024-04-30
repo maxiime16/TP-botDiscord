@@ -1,6 +1,13 @@
 import random
+import os
+from dotenv import load_dotenv
 import discord #import du module
 from discord.ext import commands
+
+# Charger les variables d'environnement à partir du fichier .env
+load_dotenv()
+# Récupérer le token Discord à partir des variables d'environnement
+TOKEN = os.getenv("DISCORD_TOKEN_1")
 
 #Intents
 intents = discord.Intents().all()
@@ -40,7 +47,7 @@ async def touche(ctx):
 
 # Commande !members
 @bot.command()
-async def members(ctx):
+async def membres(ctx):
     guild = ctx.guild
     members_info = []
     for member in guild.members:
@@ -58,7 +65,7 @@ async def on_message(message):
         return
 
     # Mot spécifique à détecter pour le bannissement
-    mot_specifique = "negro"
+    mot_specifique = "epsi"
     if mot_specifique in message.content.lower():
         # Bannir l'utilisateur qui a envoyé le message
         await message.author.ban(reason="Mot spécifique interdit.")
@@ -96,5 +103,5 @@ async def parle(ctx):
 
 
 # Connexion du bot au serveur avec le token
-bot.run("MTIzNDgzODU4MjczNzI0NDIwMg.GHIu9S.gBToPlPadH4pt1olNQE6kl60I3I1viQZIHfBlo")
+bot.run(TOKEN)
 
