@@ -103,5 +103,5 @@ async def parle(ctx):
 
 
 # Connexion du bot au serveur avec le token
-bot.run(TOKEN)
+bot.run("TOKEN")
 

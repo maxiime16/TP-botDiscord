@@ -35,4 +35,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 # Connexion du bot au serveur avec le token
-bot.run(TOKEN)
+bot.run("TOKEN")
